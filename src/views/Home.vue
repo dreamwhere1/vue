@@ -1,52 +1,54 @@
 <template>
   <div class="box">
-    <header class="j-mw-header">
-      <div id="j-mw-header" class="mw-header">
-        <router-link class="mw-header_logo ga-click" to="/"></router-link>
-        <router-link to="/callApp">
-          <div id="j-mw-header_app" class="mw-header_app j-mw-header_app">App查看</div>
-        </router-link>
-        <div class="mw-header_search">
-          <router-link to="/search" class="iconfont icon-ss"></router-link>
-        </div>
-      </div>
-    </header>
-    <van-swipe :autoplay="3000" indicator-color="white">
-      <van-swipe-item v-for="(item, index) in bannerList" :key="index">
-        <img :src=" item.photoUrl" :alt="item.name">
-      </van-swipe-item>
-    </van-swipe>
-    <div class="mw-firstCateIconSet">
-      <div class="icon-box">
-        <div class="icon-cell" v-for="(icon, index) in iconList" :key="index">
-          <a href="javascript:;">
-            <div class="icon-round">
-              <img :src="icon.photoUrl">
-            </div>
-          </a>
-          <div class="icon-txt">{{ icon.name }}</div>
-        </div>
-      </div>
-    </div>
-    <div class="mw-custom-module-wrap" v-for="(section, id) in sectionList" :key="id">
-      <div class="mw-divide" v-if="id < load"></div>
-      <div class="mw-inner-box" v-if="id < load">
-        <div class="mw-custom-module">
-          <div class="custom-top f-cb">
-            <div class="custom-name">{{ section.sectionName }}</div>
+    <van-pull-refresh v-model="isLoading" @refresh="onRefresh" success-text="刷新成功！" :success-duration="1000">
+      <header class="j-mw-header">
+        <div id="j-mw-header" class="mw-header">
+          <router-link class="mw-header_logo ga-click" to="/"></router-link>
+          <router-link to="/callApp">
+            <div id="j-mw-header_app" class="mw-header_app j-mw-header_app">App查看</div>
+          </router-link>
+          <div class="mw-header_search">
+            <router-link to="/search" class="iconfont icon-ss"></router-link>
           </div>
-            <div v-for="(item, index) in section.elementDtoList" :key="index" class="custom-card custom-card-small custom-card-withPrice" :class="id === 1 || ((id === 3 || id === 4 || id ===5 ) && index === 0) ? 'flag' : ''" >
-              <router-link :to="'/course?courseId='+item.id">
-                <div class="img-box">
-                  <img :src="item.photoUrl">
-                </div>
-                <div class="course-title two-row-limit" v-if="id != 1">{{ item.name }}</div>
-                <div class="course-price" v-if="id != 6 && id != 7">{{ item.courseCardVo ? '￥' + item.courseCardVo.yktCourseCardv.price : '' }}</div>
-              </router-link>
-            </div>
+        </div>
+      </header>
+      <van-swipe :autoplay="3000" indicator-color="white">
+        <van-swipe-item v-for="(item, index) in bannerList" :key="index">
+          <img :src=" item.photoUrl" :alt="item.name">
+        </van-swipe-item>
+      </van-swipe>
+      <div class="mw-firstCateIconSet">
+        <div class="icon-box">
+          <div class="icon-cell" v-for="(icon, index) in iconList" :key="index">
+            <a href="javascript:;">
+              <div class="icon-round">
+                <img :src="icon.photoUrl">
+              </div>
+            </a>
+            <div class="icon-txt">{{ icon.name }}</div>
+          </div>
         </div>
       </div>
-    </div>
+      <div class="mw-custom-module-wrap" v-for="(section, id) in sectionList" :key="id">
+        <div class="mw-divide" v-if="id < load"></div>
+        <div class="mw-inner-box" v-if="id < load">
+          <div class="mw-custom-module">
+            <div class="custom-top f-cb">
+              <div class="custom-name">{{ section.sectionName }}</div>
+            </div>
+              <div v-for="(item, index) in section.elementDtoList" :key="index" class="custom-card custom-card-small custom-card-withPrice" :class="id === 1 || ((id === 3 || id === 4 || id ===5 ) && index === 0) ? 'flag' : ''" >
+                <router-link :to="'/course?courseId='+item.id">
+                  <div class="img-box">
+                    <img :src="item.photoUrl">
+                  </div>
+                  <div class="course-title two-row-limit" v-if="id != 1">{{ item.name }}</div>
+                  <div class="course-price" v-if="id != 6 && id != 7">{{ item.courseCardVo ? '￥' + item.courseCardVo.yktCourseCardv.price : '' }}</div>
+                </router-link>
+              </div>
+          </div>
+        </div>
+      </div>
+    </van-pull-refresh>
   </div>
 </template>
 
@@ -54,11 +56,25 @@
 import { mapActions, mapState } from 'vuex'
 
 export default {
+  name: 'Home',
+  data () {
+    return {
+      isLoading: false
+    }
+  },
   computed: {
     ...mapState('home', ['bannerList', 'iconList', 'sectionList', 'load'])
   },
   methods: {
-    ...mapActions('home', ['getBanner', 'getIcon', 'getSection'])
+    ...mapActions('home', ['getBanner', 'getIcon', 'getSection']),
+    onRefresh () {
+      this.getBanner()
+      this.getIcon()
+      this.getSection()
+      setTimeout(() => {
+        this.isLoading = false
+      }, 500)
+    }
   },
   created () {
     this.getBanner()

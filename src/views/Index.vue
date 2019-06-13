@@ -1,22 +1,20 @@
 <template>
   <div>
     <transition name="component-fade" mode="out-in">
-      <router-view></router-view>
+      <keep-alive include="Home">
+        <router-view></router-view>
+      </keep-alive>
     </transition>
     <footer class="mw-footer j-mw-footer">
       <div class="um-common-footer">
-        <!--Regular if3-->
-        <!--Regular list-->
         <router-link class="um-common-footer_item" to="/index">
           <i class="iconfont icon-xiaofangzi"></i>
           <div class="um-common-footer_item_text">首页</div>
         </router-link>
-
         <router-link class="um-common-footer_item" to="/study">
           <i class="iconfont icon-book1"></i>
           <div class="um-common-footer_item_text">我的学习</div>
         </router-link>
-
         <router-link class="um-common-footer_item" :to="{name: 'center'}">
           <i class="iconfont icon-wode"></i>
           <div class="um-common-footer_item_text">帐号</div>

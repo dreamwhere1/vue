@@ -3,7 +3,7 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   routes: [
     {
       path: '/home',
@@ -16,6 +16,19 @@ export default new Router({
           component: () => import('../views/Home.vue')
         },
         {
+          path: 'study',
+          name: 'study',
+          component: () => import('../views/Study.vue'),
+          beforeEnter (to, from, next) {
+            let userInfo = localStorage.userInfo ? JSON.parse(localStorage.userInfo) : ''
+            if (!userInfo.name) {
+              next('/login')
+            } else {
+              next()
+            }
+          }
+        },
+        {
           path: 'center',
           name: 'center',
           component: () => import('../views/Center.vue')
@@ -25,10 +38,6 @@ export default new Router({
           redirect: '/index'
         }
       ]
-    },
-    {
-      path: '/study',
-      component: () => import('../views/Study.vue')
     },
     {
       path: '/search',
@@ -43,6 +52,10 @@ export default new Router({
       component: () => import('../views/Course.vue')
     },
     {
+      path: '/login',
+      component: () => import('../components/BeforeLogin.vue')
+    },
+    {
       path: '*',
       redirect: '/'
     }
@@ -54,3 +67,5 @@ export default new Router({
     }
   }
 })
+
+export default router
