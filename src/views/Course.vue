@@ -80,7 +80,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .m-2top {
   font-size: 20px;
   color: #fff;
@@ -146,20 +146,6 @@ export default {
 .u-coursebottom {
     padding: 7px 8px;
     border-top: 1px solid rgba(221, 221, 221, 0.4);
-}
-[class*="van-hairline"] {
-  &::after {
-    border: 1px solid #ccc;
-    transform: scale(0.5);
-  }
-}
-.van-tab span {
-  font-size: 15px;
-}
-.van-tabs--line {
-  .van-tabs__wrap {
-    height: 46px;
-  }
 }
 .post {
   img {

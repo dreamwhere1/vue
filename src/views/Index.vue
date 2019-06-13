@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="index">
     <transition name="component-fade" mode="out-in">
       <keep-alive include="Home">
         <router-view></router-view>
@@ -46,6 +46,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.index{
+  background: #f2f4f7
+}
 .mw-footer{
   width: 100%;
   box-sizing: border-box;

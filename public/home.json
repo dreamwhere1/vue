@@ -1,4 +1,11 @@
 {
+  "courseList": [
+    {
+      "couseId":1,
+      "bigPicUrl": "https://edu-image.nosdn.127.net/86c25badac8b49498bcea29a3a414d44.jpg?imageView&quality=100&crop=0_0_900_505",
+      "resName": "网易Java高级开发直播系列4"
+    }
+  ],
   "focusDtoList": [
     {
       "id": null,

@@ -48,3 +48,17 @@ table {
 .van-overlay {
 	background-color: rgba(0,0,0,.2) !important;
 }
+[class*="van-hairline"] {
+  &::after {
+    border: 1px solid #ccc;
+    transform: scale(0.5);
+  }
+}
+.van-tab span {
+  font-size: 15px;
+}
+.van-tabs--line {
+  .van-tabs__wrap {
+    height: 46px;
+  }
+}

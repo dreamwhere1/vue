@@ -17,15 +17,17 @@
           <img :src=" item.photoUrl" :alt="item.name">
         </van-swipe-item>
       </van-swipe>
-      <div class="mw-firstCateIconSet">
-        <div class="icon-box">
-          <div class="icon-cell" v-for="(icon, index) in iconList" :key="index">
-            <a href="javascript:;">
-              <div class="icon-round">
-                <img :src="icon.photoUrl">
-              </div>
-            </a>
-            <div class="icon-txt">{{ icon.name }}</div>
+      <div class="bg">
+        <div class="mw-firstCateIconSet">
+          <div class="icon-box">
+            <div class="icon-cell" v-for="(icon, index) in iconList" :key="index">
+              <a href="javascript:;">
+                <div class="icon-round">
+                  <img :src="icon.photoUrl">
+                </div>
+              </a>
+              <div class="icon-txt">{{ icon.name }}</div>
+            </div>
           </div>
         </div>
       </div>
@@ -85,6 +87,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.bg{
+  overflow: hidden;
+  background-color: #fff;
+}
 .course-price {
   margin-top: 6px;
   font-size: 16px;
@@ -188,6 +194,9 @@ img {
   display: flex;
   width: 92%;
   margin: 0 auto;
+}
+.mw-custom-module-wrap{
+  background-color: #fff;
 }
 .mw-divide {
   width: 100%;
