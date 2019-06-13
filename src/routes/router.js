@@ -56,6 +56,14 @@ const router = new Router({
       component: () => import('../components/BeforeLogin.vue')
     },
     {
+      path: '/phoneLogin',
+      component: () => import('../views/PhoneLogin.vue')
+    },
+    {
+      path: '/phoneRegister',
+      component: () => import('../views/PhoneRegister.vue')
+    },
+    {
       path: '*',
       redirect: '/'
     }

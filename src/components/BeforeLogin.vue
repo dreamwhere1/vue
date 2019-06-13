@@ -9,8 +9,8 @@
           src="//edu-image.nosdn.127.net/c26ea87a-f364-4b52-97d0-dce9851d7761.png?imageView&amp;quality=100"
         >
         <div class="btn-wrap f-cb">
-          <a class="f-fl btn-main" href="javascript:;">手机号登录</a>
-          <a class="f-fl btn-main" href="javascript:;">手机号快捷注册</a>
+          <router-link class="f-fl btn-main" to='/phoneLogin'>手机号登录</router-link>
+          <router-link class="f-fl btn-main" to='/phoneRegister'>手机号快捷注册</router-link>
         </div>
       </div>
     </div>
