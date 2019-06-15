@@ -47,7 +47,7 @@ export default {
 
 <style lang="scss" scoped>
 .index{
-  background: #f2f4f7
+  background: #f2f4f7;
 }
 .mw-footer{
   width: 100%;

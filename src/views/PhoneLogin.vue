@@ -96,7 +96,7 @@ export default {
           Toast.clear()
           Toast.success('登录成功！')
           setTimeout(() => {
-            this.$router.push('/center')
+            this.$router.push('/index')
           }, 2000)
         }).catch(() => {
           Toast.clear()
