@@ -15,7 +15,7 @@
           <i class="iconfont icon-book1"></i>
           <div class="um-common-footer_item_text">我的学习</div>
         </router-link>
-        <router-link class="um-common-footer_item" :to="{name: 'center'}">
+        <router-link class="um-common-footer_item" to="/center">
           <i class="iconfont icon-wode"></i>
           <div class="um-common-footer_item_text">帐号</div>
         </router-link>

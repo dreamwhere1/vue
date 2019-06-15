@@ -5,7 +5,7 @@
         <section class="search_input">
           <div class="input-box">
             <input v-model.trim="search" type="search" name="搜索" :placeholder="hotSearch.name">
-            <span class="chacha" style="display: none;"></span>
+            <span class="chacha" v-show="searchText" @click="changeSearch('')"></span>
           </div>
           <a class="search_btn search_btn-search">搜索</a>
         </section>
@@ -16,7 +16,7 @@
         </div>
       </div>
     </div>
-    <div class="hot-keyword" id="j-hotKeywordList" v-show="!searchText">
+    <div class="hot-keyword" id="j-hotKeywordList" v-show="!searchResult.length && !searchText">
       <div class="m-keyword">
         <p>热门搜索</p>
         <ul class="keyword">
@@ -150,6 +150,17 @@ export default {
     font-size: 14px;
     color: #3C4A55;
     text-indent: 30px;
+  }
+  .chacha{
+    display: block;
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    top: 11px;
+    right: 11px;
+    border-radius: 5px;
+    background: transparent url(//edu-image.nosdn.127.net/e0a17106-f495-4410-9920-97863ed3007b.png?imageView&quality=100) center center no-repeat;
+    background-size: 15px 15px;
   }
 }
 .search_btn {

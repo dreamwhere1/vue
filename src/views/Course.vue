@@ -10,7 +10,7 @@
         <van-tab title="评价">评价</van-tab>
       </van-tabs>
     </div>
-    <div class="u-coursebottom f-pf">
+    <div class="u-coursebottom f-pf" v-if="show < 0">
       <div class="funs">
         <a class="f-fcbrightgray addCart">
           <i class="iconfont icon-gouwuche1"></i>
@@ -20,18 +20,23 @@
       </div>
     </div>
     <div class="m-2top iconfont icon-xiangshang" id="j-brief-2top" style="display: none"></div>
+    <div class="m-backtoapp" id="j-backtoapp" :class="{ 'show': show >= 0 }">打开网易云课堂APP学习 支持倍速播放
+      <span class="f-ib f-pr arrow"></span>
+    </div>
   </div>
 </template>
 
 <script>
 import CourseMsg from '../components/CourseMsg.vue'
 import { mapActions, mapState, mapMutations } from 'vuex'
+import http from '../common/http'
 export default {
   data () {
     return {
       active: 0,
       dom: '',
-      timer: 0
+      timer: 0,
+      show: -1
     }
   },
   computed: {
@@ -72,6 +77,12 @@ export default {
   created () {
     this.getCourse()
     window.addEventListener('scroll', this.backTop)
+    if (localStorage.userInfo && JSON.parse(localStorage.userInfo).id) {
+      http.get('/userInfo').then(res => {
+        let id = Number(location.href.split('=')[1])
+        this.show = res.courseList.findIndex(item => item.courseId === id)
+      })
+    }
   },
   beforeDestroy () {
     this.resetSourse()
@@ -81,6 +92,36 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.show{
+  display: block !important;
+}
+.m-backtoapp{
+  display: none;
+}
+.arrow {
+  display: inline-block;
+  top: 13px;
+  background-image: url(//edu-image.nosdn.127.net/cbb7c671-f6c8-477f-806a-317751c12872.png?imageView&quality=100);
+  background-size: 100% 100%;
+  width: 15px;
+  height: 13px;
+  margin-left: 5px;
+  position: absolute;
+}
+.m-backtoapp {
+  position: fixed;
+  width: 280px;
+  height: 40px;
+  background: #2cc17b;
+  bottom: 5px;
+  left: 50%;
+  margin-left: -150px;
+  border-radius: 20px;
+  color: #fff;
+  font-size: 14px;
+  line-height: 40px;
+  padding-left: 20px;
+}
 .m-2top {
   font-size: 20px;
   color: #fff;

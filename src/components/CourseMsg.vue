@@ -9,18 +9,18 @@
           </span>
           <span class="f-fl">{{ course.star ? course.star : '0.0' }}分</span>
         </span>
-        <span class="f-fl f-db hot">{{ course.amount ? course.amount : 0 }}在学</span>
+        <span class="f-fl f-db hot">{{ course.amount ? course.amount : 0 }}人学过</span>
         <span class="tag">
           <span class="icon-tag-dj">独家</span>
         </span>
       </div>
       <div class="pricebox">
         <div class="price price-novip f-cb">
-          <p class="f-fl">
+          <p class="f-fl" :class="{'font': course.discountPrice <= 0}">
             <span class="yen" v-if="course.discountPrice">¥</span>{{ course.discountPrice ? course.discountPrice.toFixed(2) : '免费' }}
           </p>
           <div class="timebox f-cb f-fl">
-            <div class="f-fl timeleft">特价仅剩{{ timer.day }}天{{ timer.hour }}小时{{ timer.second }}分钟</div>
+            <div class="f-fl timeleft" v-if="timer.second">特价仅剩{{ timer.day }}天{{ timer.hour }}小时{{ timer.second }}分钟</div>
           </div>
           <p class="oprice f-course-grey" v-if="course.price">¥{{ course.price.toFixed(2) }}</p>
         </div>
@@ -313,5 +313,8 @@ export default {
 }
 .coursebox {
   padding: 18px 4% 14px 4%;
+}
+.font{
+  color: #2cc78b
 }
 </style>

@@ -2,14 +2,16 @@
   <div class="studymodel">
     <van-tabs v-model="active" class="van_tab" title-active-color="#2cc17b" color='#2cc17b'>
       <van-tab title="我的课程" v-bind:class="{'curriculum':iscurriculum,'curriculum_miciro':ismicoro}">
-        <li v-for="item in couseelists" :key="item.couseId">
-          <img :src="item.bigPicUrl" alt="" class="photo">
-          <div class="news">
-            <span>{{ item.resName }} </span> <br>
-            <a href="javascript:void(0);">开始学习</a>
-          </div>
-        </li>
-        <p>已经到底部了亲</p>
+        <van-pull-refresh v-model="isLoading" @refresh="onRefresh" success-text="刷新成功！" :success-duration="1000" style="overflow: unset">
+          <router-link :to="'/course?courseId=' + item.courseId" v-for="item in couseelists" :key="item.courseId" tag="li">
+            <img :src="item.bigPicUrl" alt="" class="photo">
+            <div class="news">
+              <span>{{ item.resName }} </span> <br>
+              <i>开始学习</i>
+            </div>
+          </router-link>
+          <p>已经到底部了亲</p>
+        </van-pull-refresh>
       </van-tab>
       <van-tab title="我的微专业" class="miciro">
         <img src="//swap.stu.126.net/res/images/wap/common/newBlank.png?7b6c25677a53976b44f4d028d9dc761f">
@@ -22,29 +24,34 @@
 </template>
 
 <script>
-import axios from 'axios'
+import http from '../common/http'
 export default {
   data () {
     return {
       active: 0,
       couseelists: [],
       iscurriculum: true,
-      ismicoro: false
+      ismicoro: false,
+      isLoading: false
     }
   },
   created () {
-    axios.get('http://localhost:3000/courseList').then(res => {
-      console.log(res)
-      this.couseelists = res.data
-      if (this.res === '') {
-        this.iscurriculum = false
-        this.ismicoro = true
-      }
-    })
+    this.getCourseList()
   },
-  watch: {
-    couseelists (newVal, oldVal) {
-      console.log(newVal)
+  methods: {
+    getCourseList () {
+      http.get('/userInfo').then(res => {
+        // console.log(res)
+        this.isLoading = false
+        this.couseelists = res.courseList
+        if (this.res === '') {
+          this.iscurriculum = false
+          this.ismicoro = true
+        }
+      })
+    },
+    onRefresh () {
+      this.getCourseList()
     }
   }
 }
@@ -117,14 +124,14 @@ export default {
     .news{
         height: 76px;
         width: 245px;
-       display: inline-block;
+       display: block;
        float: right;
        span{
           font-size: 16px;
           color: #333;
           line-height: 36px;
        }
-       a{
+       i{
           height: 28px;
           width: 112px;
           color: #2cc17b;
@@ -136,6 +143,7 @@ export default {
           text-align: center;
           line-height: 28px;
           margin-top: 15px;
+          font-style: normal;
        }
     }
   }

@@ -1,11 +1,21 @@
 {
-  "courseList": [
-    {
-      "couseId":1,
-      "bigPicUrl": "https://edu-image.nosdn.127.net/86c25badac8b49498bcea29a3a414d44.jpg?imageView&quality=100&crop=0_0_900_505",
-      "resName": "网易Java高级开发直播系列4"
-    }
-  ],
+  "userInfo": {
+    "id": 123,
+    "name": "mooc167726900381540",
+    "src": "http://img.52z.com/upload/news/image/20180411/20180411111738_20831.jpg",
+    "courseList": [
+      {
+        "courseId": 1004601006,
+        "bigPicUrl": "http://edu-image.nosdn.127.net/fb105030-6bd7-4fda-aa21-67f2dadbf934.jpg?imageView&quality=100&crop=43_55_993_514",
+        "resName": "零基础法语发音课"
+      },
+      {
+        "courseId": 1005986009,
+        "bigPicUrl": "http://edu-image.nosdn.127.net/ae66b0e4-b40e-4bed-a23a-47803af828bb.jpg?imageView&quality=100&crop=38_249_859_480",
+        "resName": "[oeasy]教您玩转手机摄影技巧"
+      }
+    ]
+  },
   "focusDtoList": [
     {
       "id": null,
@@ -3653,6 +3663,76 @@
       "timer": 1560754719470,
       "ableMsg": "√缺乏理财意识的月光族\n√每天被工作困扰，没时间提升自己的职场人\n√想要拓宽视野，实现自我迭代的普通人",
       "selfMsg": "大家好，我是维小维。实战派财商教练，开设的小白理财课程和财商加薪课，持续热销，以认真的同理心，改变数万人。"
+    },
+    {
+      "ableMsg": "此发音课为免费试听版，可搜索“阿董零基础法语发音—后续版”，观看完整版课程（注：完整版包含微信纠音）",
+      "selfMsg": "5年法语教学经验 每日法语听力首位签约教师 沪江cctalk高人气讲师 始终秉持“趣味教学”理念 自创阿董法语字幕组，为各大影片配制中法双语字幕",
+      "star": 3.5,
+      "userName": "阿董法语",
+      "src": [
+        "//edu-image.nosdn.127.net/166fd95a-9145-4071-a1bd-4990e4ab080f.jpg?imageView&quality=100&type=webp",
+        "//edu-image.nosdn.127.net/cb50d75d-4362-4edb-af18-0822587f1c5b.jpg?imageView&quality=100&type=webp",
+        "//edu-image.nosdn.127.net/37fb6eb8-9c39-4e37-af4a-ffccf34320b8.jpg?imageView&quality=100&type=webp",
+        "//edu-image.nosdn.127.net/079e941d-c828-4fda-8c7f-0ef5ef9d47a8.jpg?imageView&quality=100&type=webp",
+        "//edu-image.nosdn.127.net/c3e58d07-4752-480b-8e8d-3321722dff16.jpg?imageView&quality=100&type=webp"
+      ],
+      "amount": "4671",
+      "userImg": "http://edu-image.nosdn.127.net/D2FE3FAB4FE2A4DADB8E3A384C0D1056.png?imageView&thumbnail=120y120&quality=100",
+      "logoUrl": "//edu-image.nosdn.127.net/fb105030-6bd7-4fda-aa21-67f2dadbf934.jpg?imageView&quality=100&crop=43_55_993_514&thumbnail=450y250",
+      "id": 100015713,
+      "productId": 1004601006,
+      "productType": 0,
+      "platType": 0,
+      "price": 0.00,
+      "name": "零基础法语发音课",
+      "providerId": 400000000277043,
+      "largePictureUrl": "http://edu-image.nosdn.127.net/fb105030-6bd7-4fda-aa21-67f2dadbf934.jpg?imageView&quality=100&crop=43_55_993_514",
+      "description": "注：为保证每个报名的学员发音精准，此套课程包含微信纠音服务（含在199价格内），如报名请务必添加阿董老师微信，以便拉入微信群纠音。\n\n有纠音的发音课，才是真正的发音课！",
+      "posterTemplateUrl": null,
+      "shareContent": null,
+      "cpsReward": 0.00,
+      "cpsRewardFeeRate": 0,
+      "providerName": "阿董法语大讲堂",
+      "discountPrice": 0.00,
+      "promoterName": null,
+      "cpsPromoteLinkUrl": "https://study.163.com/course/introduction/1004601006.htm",
+      "cpsPromoteQrCode": "http://edu-image.nosdn.127.net/_PhotoUploadUtils_0f651cea-41a2-4a8d-abfa-09e933f1af6e.png",
+      "promoted": false,
+      "share": null,
+      "shareUrlParams": null
+    },
+    {
+      "src": [
+        "//edu-image.nosdn.127.net/0cac8bae-45a4-4555-ad09-8f65344841ea.jpg?imageView&quality=100&type=webp"
+      ],
+      "star": 4.9,
+      "ableMsg": "喜欢摄影的初学者",
+      "selfMsg": "您可以在云课堂搜索oeasy获得更多资讯。讲解ps、ppt、excel等课程内容。study.163.com/u/overmind#/center/infoRead",
+      "userName": "oeasy",
+      "userImg": "//img-ph-mirror.nosdn.127.net/u6n33aeio4oTywZtqNF-IA==/6597217101216696533.jpg?imageView&quality=100&thumbnail=80y80",
+      "logoUrl": "//edu-image.nosdn.127.net/ae66b0e4-b40e-4bed-a23a-47803af828bb.jpg?imageView&quality=100&crop=38_249_859_480&thumbnail=450y250",
+      "amount": "142.9万",
+      "id": 100105141,
+      "productId": 1005986009,
+      "productType": 0,
+      "platType": 0,
+      "price": 0.00,
+      "name": "[oeasy]教您玩转手机摄影技巧",
+      "providerId": 641745,
+      "largePictureUrl": "http://edu-image.nosdn.127.net/ae66b0e4-b40e-4bed-a23a-47803af828bb.jpg?imageView&quality=100&crop=38_249_859_480",
+      "description": "介绍手机摄影技巧，取景、构图之类的方法。让您更好地使用手机摄影和拍摄。",
+      "posterTemplateUrl": null,
+      "shareContent": null,
+      "cpsReward": 0.00,
+      "cpsRewardFeeRate": 0,
+      "providerName": "oeasy教excelwordppt和ps",
+      "discountPrice": 0.00,
+      "promoterName": null,
+      "cpsPromoteLinkUrl": "https://study.163.com/course/introduction/1005986009.htm",
+      "cpsPromoteQrCode": "http://edu-image.nosdn.127.net/_PhotoUploadUtils_9ee5c9c4-b3da-4f3f-a7cc-d89aee6b3c79.png",
+      "promoted": false,
+      "share": null,
+      "shareUrlParams": null
     }
   ]
 }
